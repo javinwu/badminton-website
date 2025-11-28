@@ -127,6 +127,12 @@
 
 	<!-- INTEREST FORMS SECTION -->
 	<section class="relative mx-auto max-w-7xl px-6 py-24">
+		<!-- Tiled background elements -->
+		<img src={birdie} alt="" class="absolute left-[4%] top-[5%] h-54 w-54 rotate-[28deg] opacity-[0.028] grayscale sepia-[0.2] hue-rotate-[55deg]" />
+		<img src={racket} alt="" class="absolute right-[5%] top-[8%] h-60 w-60 -rotate-[18deg] opacity-[0.03] grayscale sepia-[0.15] hue-rotate-[32deg]" />
+		<img src={racket} alt="" class="absolute left-[6%] bottom-[6%] h-56 w-56 rotate-[45deg] opacity-[0.027] grayscale sepia-[0.15] hue-rotate-[38deg]" />
+		<img src={birdie} alt="" class="absolute right-[7%] bottom-[10%] h-50 w-50 -rotate-[30deg] opacity-[0.025] grayscale sepia-[0.2] hue-rotate-[48deg]" />
+
 		<ScrollReveal direction="scale" duration={800} threshold={0.2}>
 			<div class="mb-12 text-center">
 				<h2 class="font-serif text-4xl font-bold text-gray-900 md:text-5xl">Get Involved</h2>
@@ -245,10 +251,11 @@
 			<div class="absolute inset-y-0 left-1/2 w-px bg-gradient-to-b from-transparent via-gray-200 to-transparent"></div>
 		</div>
 
-		<!-- Decorative elements -->
-		<img src={racket} alt="" class="absolute right-8 top-32 h-24 w-24 rotate-45 opacity-[0.05] brightness-0" />
-		<img src={racket} alt="" class="absolute left-12 bottom-24 h-20 w-20 -rotate-12 opacity-[0.05] brightness-0 saturate-[0.8] hue-rotate-[45deg]" />
-		<img src={birdie} alt="" class="absolute right-24 bottom-40 h-14 w-14 rotate-[60deg] opacity-[0.04] brightness-0" />
+		<!-- Tiled background elements -->
+		<img src={racket} alt="" class="absolute left-[7%] top-[8%] h-56 w-56 rotate-[40deg] opacity-[0.03] grayscale sepia-[0.15] hue-rotate-[35deg]" />
+		<img src={birdie} alt="" class="absolute right-[6%] top-[12%] h-52 w-52 -rotate-[20deg] opacity-[0.028] grayscale sepia-[0.2] hue-rotate-[50deg]" />
+		<img src={birdie} alt="" class="absolute left-[5%] bottom-[10%] h-50 w-50 rotate-[55deg] opacity-[0.025] grayscale sepia-[0.2] hue-rotate-[45deg]" />
+		<img src={racket} alt="" class="absolute right-[8%] bottom-[5%] h-58 w-58 -rotate-[15deg] opacity-[0.027] grayscale sepia-[0.15] hue-rotate-[30deg]" />
 
 		<ScrollReveal direction="scale" duration={800} threshold={0.2}>
 			<div class="mb-16 text-center">
@@ -328,6 +335,147 @@
 					</div>
 				</div>
 			</div>
+			</div>
+		</ScrollReveal>
+	</section>
+
+	<!-- LEARN TO PLAY SECTION -->
+	<section class="relative mx-auto max-w-7xl px-6 py-24">
+		<ScrollReveal direction="scale" duration={800} threshold={0.2}>
+			<div class="mb-12 text-center">
+				<h2 class="font-serif text-4xl font-bold text-gray-900 md:text-5xl">Learn to Play</h2>
+				<div class="mx-auto mt-3 h-1 w-24 rounded-full bg-gradient-to-r from-green-600 to-amber-500"></div>
+				<p class="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
+					Essential tutorials for beginners getting started with badminton
+				</p>
+			</div>
+
+			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+				<!-- Video 1 -->
+				<a
+					href="https://www.youtube.com/watch?v=_2piF9P-ULI"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 transition-all hover:border-green-600/20 hover:shadow-lg"
+				>
+					<div class="absolute right-0 top-0 h-24 w-24 -translate-y-6 translate-x-6 opacity-0 transition-opacity group-hover:opacity-100">
+						<DotMatrix density="sparse" pulse={false} />
+					</div>
+					<div class="relative space-y-3">
+						<div class="flex h-12 w-12 items-center justify-center rounded-lg border border-green-600/20 bg-gradient-to-br from-green-50 to-green-100/50">
+							<svg class="h-6 w-6 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+								<path d="M8 5v14l11-7z"/>
+							</svg>
+						</div>
+						<h3 class="font-semibold text-gray-900">Basic Footwork</h3>
+						<p class="text-sm text-gray-600">Learn proper court movement and positioning</p>
+					</div>
+				</a>
+
+				<!-- Video 2 -->
+				<a
+					href="https://www.youtube.com/watch?v=vRP_G7oXMCo"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 transition-all hover:border-green-600/20 hover:shadow-lg"
+				>
+					<div class="absolute right-0 top-0 h-24 w-24 -translate-y-6 translate-x-6 opacity-0 transition-opacity group-hover:opacity-100">
+						<DotMatrix density="sparse" pulse={false} />
+					</div>
+					<div class="relative space-y-3">
+						<div class="flex h-12 w-12 items-center justify-center rounded-lg border border-amber-600/20 bg-gradient-to-br from-amber-50 to-amber-100/50">
+							<svg class="h-6 w-6 text-amber-600" fill="currentColor" viewBox="0 0 24 24">
+								<path d="M8 5v14l11-7z"/>
+							</svg>
+						</div>
+						<h3 class="font-semibold text-gray-900">Serve Technique</h3>
+						<p class="text-sm text-gray-600">Master the fundamentals of serving</p>
+					</div>
+				</a>
+
+				<!-- Video 3 -->
+				<a
+					href="https://www.youtube.com/watch?v=SF8G--iZN4U"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 transition-all hover:border-green-600/20 hover:shadow-lg"
+				>
+					<div class="absolute right-0 top-0 h-24 w-24 -translate-y-6 translate-x-6 opacity-0 transition-opacity group-hover:opacity-100">
+						<DotMatrix density="sparse" pulse={false} />
+					</div>
+					<div class="relative space-y-3">
+						<div class="flex h-12 w-12 items-center justify-center rounded-lg border border-green-600/20 bg-gradient-to-br from-green-50 to-green-100/50">
+							<svg class="h-6 w-6 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+								<path d="M8 5v14l11-7z"/>
+							</svg>
+						</div>
+						<h3 class="font-semibold text-gray-900">Grip Basics</h3>
+						<p class="text-sm text-gray-600">How to properly hold your racket</p>
+					</div>
+				</a>
+
+				<!-- Video 4 -->
+				<a
+					href="https://www.youtube.com/watch?v=yaeFQ8lxR9M"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 transition-all hover:border-amber-600/20 hover:shadow-lg"
+				>
+					<div class="absolute right-0 top-0 h-24 w-24 -translate-y-6 translate-x-6 opacity-0 transition-opacity group-hover:opacity-100">
+						<DotMatrix density="sparse" pulse={false} />
+					</div>
+					<div class="relative space-y-3">
+						<div class="flex h-12 w-12 items-center justify-center rounded-lg border border-amber-600/20 bg-gradient-to-br from-amber-50 to-amber-100/50">
+							<svg class="h-6 w-6 text-amber-600" fill="currentColor" viewBox="0 0 24 24">
+								<path d="M8 5v14l11-7z"/>
+							</svg>
+						</div>
+						<h3 class="font-semibold text-gray-900">Clear Shots</h3>
+						<p class="text-sm text-gray-600">Executing powerful overhead clears</p>
+					</div>
+				</a>
+
+				<!-- Video 5 -->
+				<a
+					href="https://www.youtube.com/watch?v=G-mno5V7E7Q"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 transition-all hover:border-green-600/20 hover:shadow-lg"
+				>
+					<div class="absolute right-0 top-0 h-24 w-24 -translate-y-6 translate-x-6 opacity-0 transition-opacity group-hover:opacity-100">
+						<DotMatrix density="sparse" pulse={false} />
+					</div>
+					<div class="relative space-y-3">
+						<div class="flex h-12 w-12 items-center justify-center rounded-lg border border-green-600/20 bg-gradient-to-br from-green-50 to-green-100/50">
+							<svg class="h-6 w-6 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+								<path d="M8 5v14l11-7z"/>
+							</svg>
+						</div>
+						<h3 class="font-semibold text-gray-900">Drop Shots</h3>
+						<p class="text-sm text-gray-600">Perfecting your net game</p>
+					</div>
+				</a>
+
+				<!-- Badminton Insight Channel -->
+				<a
+					href="https://www.youtube.com/@badmintoninsight"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="group relative overflow-hidden rounded-2xl border border-gray-200 bg-gradient-to-br from-green-50/50 to-amber-50/50 p-6 transition-all hover:border-amber-600/30 hover:shadow-lg"
+				>
+					<div class="absolute right-0 top-0 h-24 w-24 -translate-y-6 translate-x-6 opacity-0 transition-opacity group-hover:opacity-100">
+						<DotMatrix density="sparse" pulse={false} />
+					</div>
+					<div class="relative space-y-3">
+						<div class="flex h-12 w-12 items-center justify-center rounded-lg border border-amber-600/30 bg-gradient-to-br from-amber-100 to-amber-200/70">
+							<svg class="h-6 w-6 text-amber-700" fill="currentColor" viewBox="0 0 24 24">
+								<path d="M23 12l-4-4v3h-9v2h9v3M1 18V6c0-1.1.9-2 2-2h9v2H3v12h9v2H3c-1.1 0-2-.9-2-2z"/>
+							</svg>
+						</div>
+						<h3 class="font-semibold text-gray-900">Badminton Insight</h3>
+						<p class="text-sm text-gray-600">Complete channel with 640K+ subscribers teaching all fundamentals</p>
+					</div>
+				</a>
 			</div>
 		</ScrollReveal>
 	</section>

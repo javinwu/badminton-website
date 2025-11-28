@@ -40,10 +40,11 @@
 <main class="flex-grow">
 	<!-- HERO SECTION -->
 	<section class="relative mx-auto max-w-7x1 px-12 py-32 md:py-40">
-		<!-- Decorative elements -->
-		<img src={birdie} alt="" class="absolute left-8 top-16 h-14 w-14 rotate-45 opacity-[0.06] brightness-0" />
-		<img src={birdie} alt="" class="absolute right-12 top-20 h-12 w-12 -rotate-12 opacity-[0.06] brightness-0 saturate-[0.8] hue-rotate-[45deg]" />
-		<img src={racket} alt="" class="absolute left-16 bottom-32 h-16 w-16 rotate-[30deg] opacity-[0.04] brightness-0" />
+		<!-- Tiled background elements -->
+		<img src={birdie} alt="" class="absolute left-[6%] top-[8%] h-52 w-52 rotate-[32deg] opacity-[0.028] grayscale sepia-[0.2] hue-rotate-[52deg]" />
+		<img src={racket} alt="" class="absolute right-[7%] top-[10%] h-58 w-58 -rotate-[22deg] opacity-[0.03] grayscale sepia-[0.15] hue-rotate-[35deg]" />
+		<img src={racket} alt="" class="absolute left-[5%] bottom-[12%] h-56 w-56 rotate-[38deg] opacity-[0.027] grayscale sepia-[0.15] hue-rotate-[30deg]" />
+		<img src={birdie} alt="" class="absolute right-[8%] bottom-[8%] h-54 w-54 -rotate-[25deg] opacity-[0.026] grayscale sepia-[0.2] hue-rotate-[48deg]" />
 
 		<div class="text-center">
 			<div class="mb-6 flex items-center justify-center gap-3">
