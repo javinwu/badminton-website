@@ -21,7 +21,7 @@
 
 	<!-- Minimal Nav Bar -->
 	<nav
-		class="fixed top-0 left-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-xl"
+		class="fixed top-0 left-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-xl shadow-sm"
 	>
 		<div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
 			<!-- Logo/Brand -->
@@ -64,12 +64,12 @@
 	{@render children()}
 
 	<!-- Minimal Footer -->
-	<footer class="mt-auto border-t border-gray-100 bg-white py-12">
+	<footer class="mt-auto border-t border-gray-100 bg-gradient-to-br from-white via-green-50/20 to-amber-50/20 py-12">
 		<div class="mx-auto max-w-7xl px-6">
 			<div class="flex flex-col items-center justify-between gap-6 sm:flex-row">
 				<div class="flex items-center gap-2 text-sm text-gray-500">
 					<span>© 2025 San Ramon Valley Badminton</span>
-					<span class="h-1 w-1 rounded-full bg-gray-300"></span>
+					<span class="h-1 w-1 rounded-full bg-gradient-to-r from-green-600 to-amber-500"></span>
 					<span>All rights reserved</span>
 				</div>
 				<div class="text-sm text-gray-400">Made by Javin W</div>
