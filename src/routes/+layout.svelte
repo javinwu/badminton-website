@@ -41,7 +41,7 @@
 			<div class="flex items-center gap-8">
 				<a
 					href="/gallery"
-					class="text-sm font-medium text-gray-600 transition-colors hover:text-gray-900"
+					class="text-sm font-medium text-gray-600 transition-colors hover:text-green-600"
 				>
 					Gallery
 				</a>
@@ -50,7 +50,7 @@
 					href="https://www.instagram.com/srvhsbadminton/"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-sm font-medium text-gray-600 transition-colors hover:text-gray-900"
+					class="text-sm font-medium text-gray-600 transition-colors hover:text-green-600"
 				>
 					Instagram
 				</a>

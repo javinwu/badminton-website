@@ -1,10 +1,20 @@
 <script lang="ts">
 	import DotMatrix from '$lib/components/DotMatrix.svelte';
+	import BadmintonShuttlecock from '$lib/components/BadmintonShuttlecock.svelte';
+	import BadmintonRacket from '$lib/components/BadmintonRacket.svelte';
 </script>
 
 <main class="flex-grow">
 	<!-- HERO SECTION -->
 	<section class="relative mx-auto max-w-7xl px-6 py-32 md:py-48">
+		<!-- Floating shuttlecock decorations -->
+		<div class="pointer-events-none absolute left-10 top-20 text-green-600/20">
+			<BadmintonShuttlecock class="h-16 w-16" animate={true} />
+		</div>
+		<div class="pointer-events-none absolute right-20 top-40 text-amber-600/20">
+			<BadmintonShuttlecock class="h-12 w-12" animate={true} />
+		</div>
+
 		<div class="flex flex-col items-center gap-16 md:flex-row md:items-start md:gap-24">
 			<!-- Hero Text -->
 			<div class="flex-1 space-y-8">
@@ -32,7 +42,7 @@
 						href="https://bluechipathletic.com/collections/san-ramon-valley-badminton"
 						target="_blank"
 						rel="noopener noreferrer"
-						class="group relative inline-flex items-center gap-2 overflow-hidden rounded-lg border border-gray-200 bg-white px-6 py-3 text-sm font-medium text-gray-900 transition-all hover:border-gray-300 hover:shadow-sm"
+						class="group relative inline-flex items-center gap-2 overflow-hidden rounded-lg border border-gray-200 bg-white px-6 py-3 text-sm font-medium text-gray-900 transition-all hover:border-green-600 hover:bg-green-50 hover:text-green-900"
 					>
 						<span>Merch Store</span>
 						<svg
@@ -54,7 +64,7 @@
 						href="https://www.remind.com/join/YOURCODE"
 						target="_blank"
 						rel="noopener noreferrer"
-						class="inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-6 py-3 text-sm font-medium text-gray-900 transition-all hover:border-gray-300 hover:shadow-sm"
+						class="inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-6 py-3 text-sm font-medium text-gray-900 transition-all hover:border-green-600 hover:bg-green-50 hover:text-green-900"
 					>
 						Join Remind
 					</a>
@@ -82,6 +92,11 @@
 
 	<!-- INTEREST FORMS SECTION -->
 	<section class="relative mx-auto max-w-7xl px-6 py-24">
+		<!-- Racket decoration -->
+		<div class="pointer-events-none absolute right-10 top-10 rotate-45 text-green-600/10">
+			<BadmintonRacket class="h-32 w-32" />
+		</div>
+
 		<div class="mb-12 text-center">
 			<h2 class="font-serif text-4xl font-bold text-gray-900 md:text-5xl">Get Involved</h2>
 			<p class="mt-4 text-lg text-gray-600">Choose your path and join us</p>
@@ -192,6 +207,14 @@
 	<section class="relative mx-auto max-w-7xl px-6 py-24">
 		<div class="absolute inset-0 -z-10">
 			<div class="absolute inset-y-0 left-1/2 w-px bg-gradient-to-b from-transparent via-gray-200 to-transparent"></div>
+		</div>
+
+		<!-- Shuttlecock decorations -->
+		<div class="pointer-events-none absolute left-4 bottom-20 -rotate-12 text-green-600/15">
+			<BadmintonShuttlecock class="h-20 w-20" animate={true} />
+		</div>
+		<div class="pointer-events-none absolute right-8 top-32 rotate-12 text-amber-600/15">
+			<BadmintonShuttlecock class="h-16 w-16" animate={true} />
 		</div>
 
 		<div class="mb-16 text-center">
