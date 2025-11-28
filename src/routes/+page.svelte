@@ -1,41 +1,9 @@
 <script lang="ts">
 	import DotMatrix from '$lib/components/DotMatrix.svelte';
 	import ScrollReveal from '$lib/components/ScrollReveal.svelte';
-	import { onMount } from 'svelte';
+	import SpinningCube from '$lib/components/SpinningCube.svelte';
 	import birdie from '$lib/assets/badminton-birdie.svg';
 	import racket from '$lib/assets/racket.svg';
-
-	let orientation = $state(0);
-	let speed = $state(0);
-	let hovering = $state(false);
-
-	const ACCELERATION = 0.05;
-	const FRICTION = 0.92; // Multiplier for smooth deceleration
-	const MAX_VELOCITY = 20;
-
-	onMount(() => {
-		const animation = () => {
-			// Update rotation
-			orientation += speed;
-
-			// Speed up while hovering
-			if (hovering && speed < MAX_VELOCITY) {
-				speed += ACCELERATION;
-			}
-			// Slow down when not hovering (smooth deceleration)
-			else if (!hovering && speed > 0) {
-				speed *= FRICTION;
-				// Stop completely when very slow
-				if (speed < 0.01) {
-					speed = 0;
-				}
-			}
-
-			requestAnimationFrame(animation);
-		};
-
-		requestAnimationFrame(animation);
-	});
 </script>
 
 <main class="flex-grow">
@@ -103,24 +71,12 @@
 				</div>
 			</div>
 
-			<!-- Hero Image -->
+			<!-- Hero 3D Cube -->
 			<div class="relative flex-1">
 				<div class="absolute -inset-4 -z-10">
 					<DotMatrix density="normal" pulse={true} />
 				</div>
-				<div
-					class="aspect-square max-w-[450px] overflow-hidden rounded-2xl border border-gray-200 bg-gray-50 shadow-sm"
-					style:rotate={`${orientation}deg`}
-				>
-					<img
-						src="https://i.postimg.cc/0Q40JjhC/Screenshot-2025-11-11-at-02-19-08-IMG-2589-jpeg-WEBP-Image-898-1059-pixels.png"
-						alt="SRV Badminton Logo"
-						loading="lazy"
-						class="h-full w-full object-cover"
-						onmouseenter={() => (hovering = true)}
-						onmouseleave={() => (hovering = false)}
-					/>
-				</div>
+				<SpinningCube />
 			</div>
 		</div>
 	</section>
