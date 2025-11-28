@@ -38,6 +38,24 @@
 <main class="flex-grow">
 	<!-- HERO SECTION -->
 	<section class="relative mx-auto max-w-7x1 px-12 py-32 md:py-40">
+		<!-- Decorative shuttlecocks -->
+		<div class="absolute left-8 top-16 text-green-600/8">
+			<svg class="h-14 w-14 rotate-45" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="32" cy="20" r="6" fill="currentColor" />
+				<path d="M32 26 L28 45 L32 42 L36 45 Z" fill="currentColor" opacity="0.6" />
+				<path d="M32 26 L24 42 L28 40 L32 42 Z" fill="currentColor" opacity="0.4" />
+				<path d="M32 26 L40 42 L36 40 L32 42 Z" fill="currentColor" opacity="0.4" />
+			</svg>
+		</div>
+		<div class="absolute right-12 top-20 text-amber-600/8">
+			<svg class="h-12 w-12 -rotate-12" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="32" cy="20" r="6" fill="currentColor" />
+				<path d="M32 26 L28 45 L32 42 L36 45 Z" fill="currentColor" opacity="0.6" />
+				<path d="M32 26 L24 42 L28 40 L32 42 Z" fill="currentColor" opacity="0.4" />
+				<path d="M32 26 L40 42 L36 40 L32 42 Z" fill="currentColor" opacity="0.4" />
+			</svg>
+		</div>
+
 		<div class="text-center">
 			<div class="mb-6 flex items-center justify-center gap-3">
 				<div class="h-px w-12 bg-gradient-to-r from-transparent via-green-600 to-amber-500"></div>
@@ -68,12 +86,8 @@
 				{#each clubPhotos as photo, index (photo)}
 					<button
 						onclick={() => openModal(photo)}
-						class="group relative aspect-square overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all hover:border-amber-600/20 hover:shadow-lg"
+						class="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all hover:border-amber-600/20 hover:shadow-lg"
 					>
-						<!-- Animated liquid gradient background -->
-						<div class="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-transparent opacity-0 transition-all duration-1000 group-hover:from-green-200/50 group-hover:via-amber-200/50 group-hover:to-green-200/50 group-hover:opacity-100"></div>
-						<div class="absolute inset-0 animate-liquid-slow bg-gradient-to-tr from-transparent via-transparent to-transparent opacity-0 transition-all duration-1000 group-hover:from-amber-200/40 group-hover:via-green-200/40 group-hover:to-amber-200/40 group-hover:opacity-100"></div>
-
 						<div class="absolute right-0 top-0 h-24 w-24 -translate-y-6 translate-x-6 opacity-0 transition-opacity group-hover:opacity-100">
 							<DotMatrix density="sparse" pulse={false} />
 						</div>
@@ -103,10 +117,6 @@
 						onclick={() => openModal(photo)}
 						class="group relative aspect-square overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all hover:border-green-600/20 hover:shadow-lg"
 					>
-						<!-- Animated liquid gradient background -->
-						<div class="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-transparent opacity-0 transition-all duration-1000 group-hover:from-green-200/50 group-hover:via-amber-200/50 group-hover:to-green-200/50 group-hover:opacity-100"></div>
-						<div class="absolute inset-0 animate-liquid-slow bg-gradient-to-tr from-transparent via-transparent to-transparent opacity-0 transition-all duration-1000 group-hover:from-amber-200/40 group-hover:via-green-200/40 group-hover:to-amber-200/40 group-hover:opacity-100"></div>
-
 						<div class="absolute right-0 top-0 h-24 w-24 -translate-y-6 translate-x-6 opacity-0 transition-opacity group-hover:opacity-100">
 							<DotMatrix density="sparse" pulse={false} />
 						</div>

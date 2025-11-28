@@ -114,23 +114,25 @@ button:focus-visible {
 	color: inherit;
 }
 
-/* Liquid gradient animation */
-@keyframes liquid-slow {
-	0%,
-	100% {
-		transform: translate(0, 0) scale(1);
+/* Page transition animations */
+@keyframes pageOut {
+	from {
+		transform: translateY(0);
 		opacity: 1;
 	}
-	33% {
-		transform: translate(10px, -10px) scale(1.05);
-		opacity: 0.8;
-	}
-	66% {
-		transform: translate(-10px, 10px) scale(0.95);
-		opacity: 0.9;
+	to {
+		transform: translateY(-100px);
+		opacity: 0;
 	}
 }
 
-.animate-liquid-slow {
-	animation: liquid-slow 8s ease-in-out infinite;
+@keyframes pageIn {
+	from {
+		transform: translateX(-200px);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
 }

@@ -2,8 +2,26 @@
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import GridBackground from '$lib/components/GridBackground.svelte';
+	import { beforeNavigate, afterNavigate } from '$app/navigation';
+	import { page } from '$app/stores';
+	import { fly } from 'svelte/transition';
 
 	let { children } = $props();
+
+	let isNavigating = $state(false);
+	let showContent = $state(true);
+
+	beforeNavigate(() => {
+		isNavigating = true;
+		showContent = false;
+	});
+
+	afterNavigate(() => {
+		setTimeout(() => {
+			showContent = true;
+			isNavigating = false;
+		}, 320);
+	});
 </script>
 
 <svelte:head>
@@ -47,6 +65,13 @@
 				</a>
 				<div class="h-4 w-px bg-gray-200"></div>
 				<a
+					href="/resources"
+					class="text-sm font-medium text-gray-600 transition-colors hover:text-green-600"
+				>
+					Resources
+				</a>
+				<div class="h-4 w-px bg-gray-200"></div>
+				<a
 					href="https://www.instagram.com/srvhsbadminton/"
 					target="_blank"
 					rel="noopener noreferrer"
@@ -61,7 +86,14 @@
 	<!-- Nav spacer -->
 	<div class="h-16"></div>
 
-	{@render children()}
+	{#if showContent}
+		<div
+			in:fly={{ x: -25, duration: 100, opacity: 0 }}
+			out:fly={{ y: -25, duration: 100, opacity: 0 }}
+		>
+			{@render children()}
+		</div>
+	{/if}
 
 	<!-- Minimal Footer -->
 	<footer class="mt-auto border-t border-gray-100 bg-gradient-to-br from-white via-green-50/20 to-amber-50/20 py-12">
