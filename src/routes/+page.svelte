@@ -2,6 +2,40 @@
 	import DotMatrix from '$lib/components/DotMatrix.svelte';
 	import BadmintonShuttlecock from '$lib/components/BadmintonShuttlecock.svelte';
 	import BadmintonRacket from '$lib/components/BadmintonRacket.svelte';
+	import { onMount } from 'svelte';
+	import { transform } from 'typescript';
+
+    let orientation = $state(5);
+	const ACCELERATION = 0.05;
+	const FRICTION = -0.03;
+	const MAX_VELOCITY = 20;
+	let speed = 0;
+
+	let hovering = $state(false);
+
+    let flyAway = $state(false);
+    let xOffset = $state(0);
+    let yOffset = $state(0);
+	
+    onMount(() => {
+        const animation = () => {
+		orientation += speed;
+		if (hovering) {
+			if (speed <= MAX_VELOCITY) {
+				speed += ACCELERATION;
+			}
+		} else if (speed > 0) {
+			speed += FRICTION;
+		} else if (speed < 0) {
+			speed = 0;
+		}
+        xOffset += speed;
+        yOffset += speed;
+		requestAnimationFrame(animation);
+	}
+
+        requestAnimationFrame(animation);
+    })
 </script>
 
 <main class="flex-grow">
@@ -77,13 +111,17 @@
 					<DotMatrix density="normal" pulse={true} />
 				</div>
 				<div
-					class="aspect-square overflow-hidden rounded-2xl border border-gray-200 bg-gray-50 shadow-sm"
+					class="aspect-square overflow-hidden rounded-2xl border border-gray-200 bg-gray-50 shadow-sm max-w-[450px]"
+                    style:rotate={`${orientation}deg`}
+                    style:transform={`translate(${xOffset}px, ${yOffset}px)`}
 				>
 					<img
 						src="https://i.postimg.cc/0Q40JjhC/Screenshot-2025-11-11-at-02-19-08-IMG-2589-jpeg-WEBP-Image-898-1059-pixels.png"
 						alt="SRV Badminton Logo"
-						loading="eager"
+						loading="lazy"
 						class="h-full w-full object-cover"
+                        onmouseleave={() => {hovering = false}}
+                        onmouseenter={() => {hovering = true}}
 					/>
 				</div>
 			</div>
