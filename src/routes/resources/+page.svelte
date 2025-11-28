@@ -1,6 +1,8 @@
 <script lang="ts">
 	import ScrollReveal from '$lib/components/ScrollReveal.svelte';
 	import DotMatrix from '$lib/components/DotMatrix.svelte';
+	import birdie from '$lib/assets/badminton-birdie.svg';
+	import racket from '$lib/assets/racket.svg';
 </script>
 
 <svelte:head>
@@ -11,26 +13,9 @@
 	<!-- HERO SECTION -->
 	<section class="relative mx-auto max-w-7xl px-6 py-32 md:py-40">
 		<!-- Decorative elements -->
-		<div class="absolute left-10 top-24 text-green-600/8">
-			<svg class="h-16 w-16 rotate-12" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<circle cx="32" cy="20" r="6" fill="currentColor" />
-				<path d="M32 26 L28 45 L32 42 L36 45 Z" fill="currentColor" opacity="0.6" />
-				<path d="M32 26 L24 42 L28 40 L32 42 Z" fill="currentColor" opacity="0.4" />
-				<path d="M32 26 L40 42 L36 40 L32 42 Z" fill="currentColor" opacity="0.4" />
-			</svg>
-		</div>
-		<div class="absolute right-16 top-32 text-amber-600/8">
-			<svg class="h-20 w-20 -rotate-45" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<rect x="28" y="40" width="8" height="20" rx="4" fill="currentColor" opacity="0.5" />
-				<circle cx="32" cy="24" r="14" stroke="currentColor" stroke-width="2.5" fill="none" />
-				<line x1="32" y1="12" x2="32" y2="36" stroke="currentColor" opacity="0.3" stroke-width="0.8" />
-				<line x1="26" y1="12" x2="26" y2="36" stroke="currentColor" opacity="0.3" stroke-width="0.8" />
-				<line x1="38" y1="12" x2="38" y2="36" stroke="currentColor" opacity="0.3" stroke-width="0.8" />
-				<line x1="20" y1="24" x2="44" y2="24" stroke="currentColor" opacity="0.3" stroke-width="0.8" />
-				<line x1="20" y1="18" x2="44" y2="18" stroke="currentColor" opacity="0.3" stroke-width="0.8" />
-				<line x1="20" y1="30" x2="44" y2="30" stroke="currentColor" opacity="0.3" stroke-width="0.8" />
-			</svg>
-		</div>
+		<img src={birdie} alt="" class="absolute left-10 top-24 h-16 w-16 rotate-12 opacity-[0.06] brightness-0" />
+		<img src={racket} alt="" class="absolute right-16 top-32 h-20 w-20 -rotate-45 opacity-[0.05] brightness-0 saturate-[0.8] hue-rotate-[45deg]" />
+		<img src={birdie} alt="" class="absolute right-20 bottom-24 h-12 w-12 rotate-[70deg] opacity-[0.04] brightness-0" />
 
 		<div class="text-center">
 			<div class="mb-6 flex items-center justify-center gap-3">

@@ -2,6 +2,8 @@
 	import DotMatrix from '$lib/components/DotMatrix.svelte';
 	import ScrollReveal from '$lib/components/ScrollReveal.svelte';
 	import { onMount } from 'svelte';
+	import birdie from '$lib/assets/badminton-birdie.svg';
+	import racket from '$lib/assets/racket.svg';
 
 	let orientation = $state(0);
 	let speed = $state(0);
@@ -39,27 +41,11 @@
 <main class="flex-grow">
 	<!-- HERO SECTION -->
 	<section class="relative mx-auto max-w-7xl px-6 py-32 md:py-48">
-		<!-- Decorative shuttlecocks -->
-		<div class="absolute left-12 top-24 text-green-600/10">
-			<svg class="h-16 w-16 rotate-12" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<!-- Cork/head -->
-				<circle cx="32" cy="20" r="6" fill="currentColor" />
-				<!-- Feathers -->
-				<path d="M32 26 L28 45 L32 42 L36 45 Z" fill="currentColor" opacity="0.6" />
-				<path d="M32 26 L24 42 L28 40 L32 42 Z" fill="currentColor" opacity="0.4" />
-				<path d="M32 26 L40 42 L36 40 L32 42 Z" fill="currentColor" opacity="0.4" />
-			</svg>
-		</div>
-		<div class="absolute right-16 bottom-12 text-amber-600/10">
-			<svg class="h-12 w-12 -rotate-45" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<!-- Cork/head -->
-				<circle cx="32" cy="20" r="6" fill="currentColor" />
-				<!-- Feathers -->
-				<path d="M32 26 L28 45 L32 42 L36 45 Z" fill="currentColor" opacity="0.6" />
-				<path d="M32 26 L24 42 L28 40 L32 42 Z" fill="currentColor" opacity="0.4" />
-				<path d="M32 26 L40 42 L36 40 L32 42 Z" fill="currentColor" opacity="0.4" />
-			</svg>
-		</div>
+		<!-- Tiled background elements -->
+		<img src={birdie} alt="" class="absolute left-[5%] top-[10%] h-48 w-48 rotate-12 opacity-[0.03] grayscale sepia-[0.2] hue-rotate-[60deg]" />
+		<img src={racket} alt="" class="absolute right-[8%] top-[15%] h-56 w-56 -rotate-[25deg] opacity-[0.03] grayscale sepia-[0.15] hue-rotate-[30deg]" />
+		<img src={birdie} alt="" class="absolute right-[10%] bottom-[5%] h-52 w-52 rotate-[35deg] opacity-[0.025] grayscale sepia-[0.2] hue-rotate-[45deg]" />
+		<img src={racket} alt="" class="absolute left-[3%] bottom-[8%] h-60 w-60 rotate-[15deg] opacity-[0.025] grayscale sepia-[0.15] hue-rotate-[35deg]" />
 
 		<div class="flex flex-col items-center gap-16 md:flex-row md:items-start md:gap-24">
 			<!-- Hero Text -->
@@ -259,37 +245,10 @@
 			<div class="absolute inset-y-0 left-1/2 w-px bg-gradient-to-b from-transparent via-gray-200 to-transparent"></div>
 		</div>
 
-		<!-- Decorative racket -->
-		<div class="absolute right-8 top-32 text-green-600/8">
-			<svg class="h-24 w-24 rotate-45" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<!-- Handle -->
-				<rect x="28" y="40" width="8" height="20" rx="4" fill="currentColor" opacity="0.5" />
-				<!-- Racket frame -->
-				<circle cx="32" cy="24" r="14" stroke="currentColor" stroke-width="2.5" fill="none" />
-				<!-- Strings -->
-				<line x1="32" y1="12" x2="32" y2="36" stroke="currentColor" opacity="0.3" stroke-width="0.8" />
-				<line x1="26" y1="12" x2="26" y2="36" stroke="currentColor" opacity="0.3" stroke-width="0.8" />
-				<line x1="38" y1="12" x2="38" y2="36" stroke="currentColor" opacity="0.3" stroke-width="0.8" />
-				<line x1="20" y1="24" x2="44" y2="24" stroke="currentColor" opacity="0.3" stroke-width="0.8" />
-				<line x1="20" y1="18" x2="44" y2="18" stroke="currentColor" opacity="0.3" stroke-width="0.8" />
-				<line x1="20" y1="30" x2="44" y2="30" stroke="currentColor" opacity="0.3" stroke-width="0.8" />
-			</svg>
-		</div>
-		<div class="absolute left-12 bottom-24 text-amber-600/8">
-			<svg class="h-20 w-20 -rotate-12" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<!-- Handle -->
-				<rect x="28" y="40" width="8" height="20" rx="4" fill="currentColor" opacity="0.5" />
-				<!-- Racket frame -->
-				<circle cx="32" cy="24" r="14" stroke="currentColor" stroke-width="2.5" fill="none" />
-				<!-- Strings -->
-				<line x1="32" y1="12" x2="32" y2="36" stroke="currentColor" opacity="0.3" stroke-width="0.8" />
-				<line x1="26" y1="12" x2="26" y2="36" stroke="currentColor" opacity="0.3" stroke-width="0.8" />
-				<line x1="38" y1="12" x2="38" y2="36" stroke="currentColor" opacity="0.3" stroke-width="0.8" />
-				<line x1="20" y1="24" x2="44" y2="24" stroke="currentColor" opacity="0.3" stroke-width="0.8" />
-				<line x1="20" y1="18" x2="44" y2="18" stroke="currentColor" opacity="0.3" stroke-width="0.8" />
-				<line x1="20" y1="30" x2="44" y2="30" stroke="currentColor" opacity="0.3" stroke-width="0.8" />
-			</svg>
-		</div>
+		<!-- Decorative elements -->
+		<img src={racket} alt="" class="absolute right-8 top-32 h-24 w-24 rotate-45 opacity-[0.05] brightness-0" />
+		<img src={racket} alt="" class="absolute left-12 bottom-24 h-20 w-20 -rotate-12 opacity-[0.05] brightness-0 saturate-[0.8] hue-rotate-[45deg]" />
+		<img src={birdie} alt="" class="absolute right-24 bottom-40 h-14 w-14 rotate-[60deg] opacity-[0.04] brightness-0" />
 
 		<ScrollReveal direction="scale" duration={800} threshold={0.2}>
 			<div class="mb-16 text-center">

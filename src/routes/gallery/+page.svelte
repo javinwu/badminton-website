@@ -1,5 +1,7 @@
 <script lang="ts">
 	import DotMatrix from '$lib/components/DotMatrix.svelte';
+	import birdie from '$lib/assets/badminton-birdie.svg';
+	import racket from '$lib/assets/racket.svg';
 
 	// ====================================
 	// EASY PHOTO MANAGEMENT
@@ -38,23 +40,10 @@
 <main class="flex-grow">
 	<!-- HERO SECTION -->
 	<section class="relative mx-auto max-w-7x1 px-12 py-32 md:py-40">
-		<!-- Decorative shuttlecocks -->
-		<div class="absolute left-8 top-16 text-green-600/8">
-			<svg class="h-14 w-14 rotate-45" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<circle cx="32" cy="20" r="6" fill="currentColor" />
-				<path d="M32 26 L28 45 L32 42 L36 45 Z" fill="currentColor" opacity="0.6" />
-				<path d="M32 26 L24 42 L28 40 L32 42 Z" fill="currentColor" opacity="0.4" />
-				<path d="M32 26 L40 42 L36 40 L32 42 Z" fill="currentColor" opacity="0.4" />
-			</svg>
-		</div>
-		<div class="absolute right-12 top-20 text-amber-600/8">
-			<svg class="h-12 w-12 -rotate-12" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<circle cx="32" cy="20" r="6" fill="currentColor" />
-				<path d="M32 26 L28 45 L32 42 L36 45 Z" fill="currentColor" opacity="0.6" />
-				<path d="M32 26 L24 42 L28 40 L32 42 Z" fill="currentColor" opacity="0.4" />
-				<path d="M32 26 L40 42 L36 40 L32 42 Z" fill="currentColor" opacity="0.4" />
-			</svg>
-		</div>
+		<!-- Decorative elements -->
+		<img src={birdie} alt="" class="absolute left-8 top-16 h-14 w-14 rotate-45 opacity-[0.06] brightness-0" />
+		<img src={birdie} alt="" class="absolute right-12 top-20 h-12 w-12 -rotate-12 opacity-[0.06] brightness-0 saturate-[0.8] hue-rotate-[45deg]" />
+		<img src={racket} alt="" class="absolute left-16 bottom-32 h-16 w-16 rotate-[30deg] opacity-[0.04] brightness-0" />
 
 		<div class="text-center">
 			<div class="mb-6 flex items-center justify-center gap-3">
