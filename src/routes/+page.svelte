@@ -107,6 +107,17 @@
 				rel="noopener noreferrer"
 				class="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-8 transition-all hover:border-green-600/20 hover:shadow-lg"
 			>
+				<!-- Background Image -->
+				<div class="absolute inset-0 opacity-[0.08] transition-opacity group-hover:opacity-[0.12]">
+					<img
+						src="https://25.media.tumblr.com/tumblr_m7yfgi3xRX1qjc3o7o1_500.jpg"
+						alt=""
+						class="h-full w-full object-cover grayscale"
+					/>
+				</div>
+				<!-- Gradient Overlay -->
+				<div class="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-green-50/95"></div>
+
 				<div class="absolute right-0 top-0 h-32 w-32 -translate-y-8 translate-x-8">
 					<DotMatrix density="sparse" pulse={false} />
 				</div>
@@ -156,6 +167,17 @@
 				rel="noopener noreferrer"
 				class="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-8 transition-all hover:border-amber-600/20 hover:shadow-lg"
 			>
+				<!-- Background Image -->
+				<div class="absolute inset-0 opacity-[0.08] transition-opacity group-hover:opacity-[0.12]">
+					<img
+						src="https://english.news.cn/20240728/27d75c09d882462888460a5f02cbb35f/2024072827d75c09d882462888460a5f02cbb35f_2024072870501d86df9443f88111c56f3d7c79ce.jpg"
+						alt=""
+						class="h-full w-full object-cover grayscale"
+					/>
+				</div>
+				<!-- Gradient Overlay -->
+				<div class="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-amber-50/95"></div>
+
 				<div class="absolute right-0 top-0 h-32 w-32 -translate-y-8 translate-x-8">
 					<DotMatrix density="sparse" pulse={false} />
 				</div>

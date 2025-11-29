@@ -13,6 +13,46 @@
 	let showContent = $state(true);
 	let mobileMenuOpen = $state(false);
 
+	// Desktop navbar sliding indicator
+	let navLinksContainer: HTMLDivElement;
+	let indicatorStyle = $state('');
+
+	const navItems = [
+		{ href: '/gallery', label: 'Gallery' },
+		{ href: '/resources', label: 'Resources' },
+		{ href: 'https://www.instagram.com/srvhsbadminton/', label: 'Instagram', external: true }
+	];
+
+	function updateIndicator() {
+		if (!navLinksContainer) return;
+
+		const currentPath = $page.url.pathname;
+		const links = navLinksContainer.querySelectorAll('a');
+
+		let activeLink: HTMLAnchorElement | null = null;
+		links.forEach((link) => {
+			const href = link.getAttribute('href') || '';
+			if (!href.startsWith('http') && currentPath === href) {
+				activeLink = link as HTMLAnchorElement;
+			}
+		});
+
+		if (activeLink) {
+			const containerRect = navLinksContainer.getBoundingClientRect();
+			const linkRect = activeLink.getBoundingClientRect();
+			const left = linkRect.left - containerRect.left;
+			const width = linkRect.width;
+			indicatorStyle = `left: ${left}px; width: ${width}px; opacity: 1;`;
+		} else {
+			indicatorStyle = 'opacity: 0;';
+		}
+	}
+
+	$effect(() => {
+		$page.url.pathname;
+		updateIndicator();
+	});
+
 	beforeNavigate(() => {
 		isNavigating = true;
 		showContent = false;
@@ -23,6 +63,7 @@
 		setTimeout(() => {
 			showContent = true;
 			isNavigating = false;
+			updateIndicator();
 		}, 320);
 	});
 
@@ -48,48 +89,48 @@
 <div class="relative flex min-h-screen flex-col overflow-x-hidden bg-white font-sans">
 	<GridBackground pulsing={false} />
 
-	<!-- Minimal Nav Bar -->
+	<!-- Enhanced Nav Bar -->
 	<nav
-		class="fixed top-0 left-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-xl shadow-sm"
+		class="fixed top-0 left-0 z-50 w-full border-b border-gray-200/60 bg-white/80 backdrop-blur-xl"
 	>
 		<div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
 			<!-- Logo/Brand -->
 			<a
 				href="/"
-				class="flex items-center gap-3 text-xl font-semibold tracking-tight text-gray-900 transition-opacity hover:opacity-70"
+				class="flex items-center gap-3 text-xl font-bold tracking-tight text-gray-900 transition-all duration-200 hover:scale-105 group"
 			>
-				<img
-					src="https://image.maxpreps.io/school-mascot/5/9/4/594e7f5d-3e25-480c-bc2c-c15cbf09c737.gif"
-					alt="srv wolves logo"
-					class="h-8 w-8 rounded-full object-cover"
-				/>
-				<span class="font-serif">SRV Badminton</span>
+				<div class="relative">
+					<img
+						src="https://image.maxpreps.io/school-mascot/5/9/4/594e7f5d-3e25-480c-bc2c-c15cbf09c737.gif"
+						alt="srv wolves logo"
+						class="h-9 w-9 rounded-full object-cover ring-2 ring-gray-200 group-hover:ring-green-500 transition-all duration-200"
+					/>
+				</div>
+				<span class="font-serif bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">SRV Badminton</span>
 			</a>
 
 			<!-- Desktop Nav Links (hidden on mobile) -->
-			<div class="hidden md:flex items-center gap-8">
-				<a
-					href="/gallery"
-					class="text-sm font-medium text-gray-600 transition-colors hover:text-green-600"
-				>
-					Gallery
-				</a>
-				<div class="h-4 w-px bg-gray-200"></div>
-				<a
-					href="/resources"
-					class="text-sm font-medium text-gray-600 transition-colors hover:text-green-600"
-				>
-					Resources
-				</a>
-				<div class="h-4 w-px bg-gray-200"></div>
-				<a
-					href="https://www.instagram.com/srvhsbadminton/"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="text-sm font-medium text-gray-600 transition-colors hover:text-green-600"
-				>
-					Instagram
-				</a>
+			<div class="hidden md:flex items-center gap-1 relative" bind:this={navLinksContainer}>
+				{#each navItems as item, i}
+					{#if i > 0}
+						<div class="h-4 w-px bg-gray-200 mx-3"></div>
+					{/if}
+					<a
+						href={item.href}
+						target={item.external ? '_blank' : undefined}
+						rel={item.external ? 'noopener noreferrer' : undefined}
+						class="relative px-3 py-2 text-sm font-semibold text-gray-700 transition-all duration-200 hover:text-green-600 rounded-lg hover:bg-green-50/50"
+						class:text-green-700={!item.external && $page.url.pathname === item.href}
+					>
+						{item.label}
+					</a>
+				{/each}
+
+				<!-- Sliding indicator -->
+				<div
+					class="absolute bottom-0 h-0.5 bg-gradient-to-r from-green-600 to-amber-500 rounded-full transition-all duration-300 ease-out"
+					style={indicatorStyle}
+				></div>
 			</div>
 
 			<!-- Mobile Menu Hamburger -->
