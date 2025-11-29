@@ -4,16 +4,19 @@
 	import GridBackground from '$lib/components/GridBackground.svelte';
 	import { beforeNavigate, afterNavigate } from '$app/navigation';
 	import { page } from '$app/stores';
-	import { fly } from 'svelte/transition';
+	import { fly, fade } from 'svelte/transition';
+	import { cubicOut } from 'svelte/easing';
 
 	let { children } = $props();
 
 	let isNavigating = $state(false);
 	let showContent = $state(true);
+	let mobileMenuOpen = $state(false);
 
 	beforeNavigate(() => {
 		isNavigating = true;
 		showContent = false;
+		mobileMenuOpen = false;
 	});
 
 	afterNavigate(() => {
@@ -22,6 +25,14 @@
 			isNavigating = false;
 		}, 320);
 	});
+
+	function toggleMobileMenu() {
+		mobileMenuOpen = !mobileMenuOpen;
+	}
+
+	function closeMobileMenu() {
+		mobileMenuOpen = false;
+	}
 </script>
 
 <svelte:head>
@@ -55,8 +66,8 @@
 				<span class="font-serif">SRV Badminton</span>
 			</a>
 
-			<!-- Nav Links -->
-			<div class="flex items-center gap-8">
+			<!-- Desktop Nav Links (hidden on mobile) -->
+			<div class="hidden md:flex items-center gap-8">
 				<a
 					href="/gallery"
 					class="text-sm font-medium text-gray-600 transition-colors hover:text-green-600"
@@ -80,8 +91,74 @@
 					Instagram
 				</a>
 			</div>
+
+			<!-- Mobile Menu Hamburger -->
+			<button
+				onclick={toggleMobileMenu}
+				class="md:hidden flex flex-col items-center justify-center w-10 h-10 gap-1.5 transition-all"
+				aria-label="Toggle menu"
+			>
+				<span
+					class="block h-0.5 w-6 bg-gray-700 transition-all duration-300"
+					class:rotate-45={mobileMenuOpen}
+					class:translate-y-2={mobileMenuOpen}
+				></span>
+				<span
+					class="block h-0.5 w-6 bg-gray-700 transition-all duration-300"
+					class:opacity-0={mobileMenuOpen}
+				></span>
+				<span
+					class="block h-0.5 w-6 bg-gray-700 transition-all duration-300"
+					class:-rotate-45={mobileMenuOpen}
+					class:-translate-y-2={mobileMenuOpen}
+				></span>
+			</button>
 		</div>
 	</nav>
+
+	<!-- Mobile Menu Drawer -->
+	{#if mobileMenuOpen}
+		<!-- Overlay -->
+		<button
+			transition:fade={{ duration: 300 }}
+			onclick={closeMobileMenu}
+			class="fixed inset-0 z-40 bg-black/40 md:hidden"
+			aria-label="Close menu"
+		></button>
+
+		<!-- Drawer Content -->
+		<div
+			transition:fly={{ y: -300, duration: 400, easing: cubicOut }}
+			class="fixed top-16 left-0 right-0 z-40 bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-2xl md:hidden"
+		>
+			<div class="flex flex-col px-6 pt-6 pb-8 space-y-1">
+				<h2 class="text-xl font-semibold text-gray-900 mb-4 font-serif">Menu</h2>
+				<a
+					href="/gallery"
+					onclick={closeMobileMenu}
+					class="text-base font-medium text-gray-700 hover:text-green-600 transition-colors py-3 px-4 rounded-lg hover:bg-gray-50 active:bg-gray-100"
+				>
+					Gallery
+				</a>
+				<a
+					href="/resources"
+					onclick={closeMobileMenu}
+					class="text-base font-medium text-gray-700 hover:text-green-600 transition-colors py-3 px-4 rounded-lg hover:bg-gray-50 active:bg-gray-100"
+				>
+					Resources
+				</a>
+				<a
+					href="https://www.instagram.com/srvhsbadminton/"
+					target="_blank"
+					rel="noopener noreferrer"
+					onclick={closeMobileMenu}
+					class="text-base font-medium text-gray-700 hover:text-green-600 transition-colors py-3 px-4 rounded-lg hover:bg-gray-50 active:bg-gray-100"
+				>
+					Instagram
+				</a>
+			</div>
+		</div>
+	{/if}
 
 	<!-- Nav spacer -->
 	<div class="h-16"></div>
