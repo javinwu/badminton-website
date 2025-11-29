@@ -1,4 +1,3 @@
-# sv
 # Badminton Website for SRV
 https://goodminton-two.vercel.app/
 sus
