@@ -5,7 +5,7 @@
 	import { beforeNavigate, afterNavigate } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { fly, fade } from 'svelte/transition';
-	import { cubicOut } from 'svelte/easing';
+	import { cubicIn, cubicOut } from 'svelte/easing';
 
 	let { children } = $props();
 
@@ -18,6 +18,7 @@
 	let indicatorStyle = $state('');
 
 	const navItems = [
+		{ href: '/announcements', label: 'Announcements' },
 		{ href: '/gallery', label: 'Gallery' },
 		{ href: '/resources', label: 'Resources' },
 		{ href: 'https://www.instagram.com/srvhsbadminton/', label: 'Instagram', external: true }
@@ -175,6 +176,13 @@
 			<div class="flex flex-col px-6 pt-6 pb-8 space-y-1">
 				<h2 class="text-xl font-semibold text-gray-900 mb-4 font-serif">Menu</h2>
 				<a
+					href="/announcements"
+					onclick={closeMobileMenu}
+					class="text-base font-medium text-gray-700 hover:text-green-600 transition-colors py-3 px-4 rounded-lg hover:bg-gray-50 active:bg-gray-100"
+				>
+					Announcements
+				</a>
+				<a
 					href="/gallery"
 					onclick={closeMobileMenu}
 					class="text-base font-medium text-gray-700 hover:text-green-600 transition-colors py-3 px-4 rounded-lg hover:bg-gray-50 active:bg-gray-100"
@@ -206,8 +214,8 @@
 
 	{#if showContent}
 		<div
-			in:fly={{ x: -25, duration: 100, opacity: 0 }}
-			out:fly={{ y: -25, duration: 100, opacity: 0 }}
+			in:fly={{ x: -30, duration: 150, easing: cubicIn }}
+			out:fly={{ y: -30, duration: 150, easing: cubicOut }}
 		>
 			{@render children()}
 		</div>
