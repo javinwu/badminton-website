@@ -1,10 +1,10 @@
 # sv
+# Badminton Website for SRV
+https://goodminton-two.vercel.app/
+sus
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
+(https://github.com/sveltejs/cli).
 
 ```sh
 # create a new project in the current directory
