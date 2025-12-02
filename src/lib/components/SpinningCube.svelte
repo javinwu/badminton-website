@@ -1,11 +1,13 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import * as THREE from 'three';
-	import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 	let container: HTMLDivElement;
 	let isInteracting = $state(false);
 	let autoRotateSpeed = $state(0.5);
+
+	let isDragging = false;
+	let previousMousePosition = { x: 0, y: 0 };
 
 	onMount(() => {
 		// Scene setup
@@ -47,20 +49,40 @@
 
 		camera.position.z = 4;
 
-		// Add OrbitControls for dragging
-		const controls = new OrbitControls(camera, renderer.domElement);
-		controls.enableDamping = true;
-		controls.dampingFactor = 0.05;
-		controls.enableZoom = false;
-		controls.enablePan = false;
-
-		// Detect when user is interacting
-		controls.addEventListener('start', () => {
+		// Custom mouse controls for unlimited cube rotation
+		const onMouseDown = (event: MouseEvent) => {
+			isDragging = true;
 			isInteracting = true;
-		});
-		controls.addEventListener('end', () => {
+			previousMousePosition = {
+				x: event.clientX,
+				y: event.clientY
+			};
+		};
+
+		const onMouseMove = (event: MouseEvent) => {
+			if (!isDragging) return;
+
+			const deltaX = event.clientX - previousMousePosition.x;
+			const deltaY = event.clientY - previousMousePosition.y;
+
+			// Rotate cube directly - NO BOUNDARIES
+			cube.rotation.y += deltaX * 0.01;
+			cube.rotation.x += deltaY * 0.01;
+
+			previousMousePosition = {
+				x: event.clientX,
+				y: event.clientY
+			};
+		};
+
+		const onMouseUp = () => {
+			isDragging = false;
 			isInteracting = false;
-		});
+		};
+
+		renderer.domElement.addEventListener('mousedown', onMouseDown);
+		window.addEventListener('mousemove', onMouseMove);
+		window.addEventListener('mouseup', onMouseUp);
 
 		// Animation loop
 		const animate = () => {
@@ -72,7 +94,6 @@
 				cube.rotation.y += autoRotateSpeed * 0.01;
 			}
 
-			controls.update();
 			renderer.render(scene, camera);
 		};
 
@@ -80,7 +101,9 @@
 
 		// Cleanup
 		return () => {
-			controls.dispose();
+			renderer.domElement.removeEventListener('mousedown', onMouseDown);
+			window.removeEventListener('mousemove', onMouseMove);
+			window.removeEventListener('mouseup', onMouseUp);
 			renderer.dispose();
 			geometry.dispose();
 			edges.dispose();
